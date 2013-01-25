@@ -1,0 +1,109 @@
+################################################
+#   Report Error Form
+#
+
+	plugin.Tx_Formhandler.settings.predef.sharepointTest {
+
+
+		#
+		# Global settings
+		#
+
+		name = Sharepoint Test Form
+		debug = 0
+		addErrorAnchors = 0
+		storeGP = 0
+		formValuesPrefix = formhandler
+
+
+		#
+		# Template and locallang settings
+		#
+
+		templateFile = EXT:sharepoint_formhandler/Resources/Private/Templates/Test.html
+		langFile.1 = EXT:sharepoint_formhandler/Resources/Private/Language/locallang.xlf
+
+
+		#
+		# Loggers configuration
+		#
+
+		loggers {
+			1 {
+				class = Tx_Formhandler_Logger_DB
+			}
+		}
+
+
+		#
+		# Interceptors configuration
+		#
+
+		initInterceptors {
+			1 {
+				class = Tx_Formhandler_Interceptor_Filtreatment
+			}
+		}
+
+
+		#
+		# Validators configuration
+		#
+
+		validators {
+			1 {
+				class = Tx_Formhandler_Validator_Default
+				config {
+
+					fieldConf {
+						t3name {
+							errorCheck.1 = required
+						}
+					}
+				}
+			}
+		}
+
+
+		#
+		# Pre processors
+		#
+
+		preProcessors {
+			1 {
+				class = Tx_Formhandler_PreProcessor_LoadDefaultValues
+				config.1 {
+					newpath.defaultValue = TEXT
+					newpath.defaultValue {
+						typolink {
+							parameter.data = TSFE:id
+							returnLast = url
+							forceAbsoluteUrl = 1
+						}
+					}
+				}
+			}
+		}
+
+
+		#
+		# Finishers configuration
+		#
+
+		finishers {
+
+			1.class = Tx_SharepointFormhandler_Finisher_Persistence
+			1.config {
+
+				# TODO
+				# override sharepointServer settings to use different sharepointserver for each form
+
+			}
+
+			2.class = Tx_Formhandler_Finisher_SubmittedOK
+			2.config {
+				returns = 1
+			}
+
+		}
+	}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-01-17T20:27:04Z" product-name="sharepoint_formhandler">
+		<header/>
+		<body>
+			<trans-unit id="title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="email">
+				<source>E-Mail</source>
+			</trans-unit>
+			<trans-unit id="submit">
+				<source>Submit</source>
+			</trans-unit>
+			<trans-unit id="error_name_required">
+				<source>Name is required</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
