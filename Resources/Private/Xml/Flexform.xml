@@ -346,21 +346,15 @@
 				</TCEforms>
 				<type>array</type>
 				<el>
-
-
-					<!-- TODO add dropdown with existing mappings, value must be the uid -->
-
 					<list>
 						<TCEforms>
 							<label>Persistence to following list</label>
 							<config>
-								<type>input</type>
-								<eval>text</eval>
-								<size>50</size>
+								<type>user</type>
+								<userFunc>Tx_Sharepoint_Formhandler->getAvailableMappings</userFunc>
 							</config>
 						</TCEforms>
 					</list>
-
 				</el>
 			</ROOT>
 		</sSHAREPOINT>
