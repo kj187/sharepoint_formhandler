@@ -54,7 +54,10 @@ class Tx_SharepointFormhandler_Finisher_Persistence extends Tx_Formhandler_Abstr
 
 		$sharepointRESTApi = $objectManager->create('Aijko\\SharepointConnector\\Sharepoint\\Rest\\Sharepoint');
 		$this->sharepointApi = $objectManager->create('Aijko\\SharepointConnector\\Sharepoint\\SharepointFacade', $sharepointRESTApi, $typoscriptConfiguration);
-		$void = $this->sharepointApi->addToList($listMappingUid, $this->gp);
+		if (!$this->sharepointApi->addToList($listMappingUid, $this->gp)) {
+			// TODO error handling
+
+		}
 
 		return $this->gp;
 	}

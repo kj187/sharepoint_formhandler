@@ -40,7 +40,7 @@ class Tx_Sharepoint_Formhandler {
 	 * @return string
 	 */
 	public function getAvailableMappings(array $PA, \TYPO3\CMS\Backend\Form\FormEngine $formObject) {
-		$resource = $GLOBALS['TYPO3_DB']->exec_SELECTquery('uid, typo3_list_title', self::TABLE_LISTMAPPING, '1=1 ' . \TYPO3\CMS\Backend\Utility\BackendUtility::BEenableFields(self::TABLE_LISTMAPPING));
+		$resource = $GLOBALS['TYPO3_DB']->exec_SELECTquery('uid, typo3_list_title', self::TABLE_LISTMAPPING, 'deleted = 0 ' . \TYPO3\CMS\Backend\Utility\BackendUtility::BEenableFields(self::TABLE_LISTMAPPING));
 		$selectOption = array();
 		$selectBox = '<select name="' . $PA['itemFormElName'] . '" onchange="' . htmlspecialchars(implode('', $PA['fieldChangeFunc'])) . '" ' . $PA['onFocus'] . '>';
 		$selectOption[] = '<option value=""></option>';
