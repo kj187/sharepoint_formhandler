@@ -351,7 +351,7 @@
 							<label>Persistence to following list</label>
 							<config>
 								<type>user</type>
-								<userFunc>Tx_Sharepoint_Formhandler->getAvailableMappings</userFunc>
+								<userFunc>Aijko\SharepointConnector\Utility\Tca->getAvailableMappings</userFunc>
 							</config>
 						</TCEforms>
 					</list>

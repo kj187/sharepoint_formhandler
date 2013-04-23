@@ -28,10 +28,4 @@
 if (!defined('TYPO3_MODE')) die ('Access denied.');
 
 
-//
-// Include userFunc
-//
-
-require_once(t3lib_extMgm::extPath('sharepoint_formhandler') . 'Classes/UserFunc/Tx_Sharepoint_Formhandler.php');
-
 ?>
